@@ -1,5 +1,5 @@
 ;
-
+/*
 console.log("Задание №1");
 console.log("\n");
 
@@ -34,35 +34,39 @@ let result = (x * y + 5 * z + x - 1);
 // let result = (x * (y + 5) * (z + x - 1));
 // let result = (x * y + 5) * (z + (x - 1));
 
-console.log(`Результат вычисления равен: ${result}.`);
+console.log(`Результат вычисления равен: ${result}.`);*/
 
 
-
-/*// Альтернативное решение Задания №1
-
-Добрый день! 
-Вопрос такой: как можно решить данную задачу через задание обекта? Т.к. в школе больше трех предметов. и что, если нам понадобится вычислить средний бал не только по трем предметам, а например и по рисованию = 5, и по музыке = 3, и по биологии = 4...
+// Начало альтернативного решения Задания №1
 
 let jornalPerson = {
-  algebra: 5,
-  geography: 4,
-  physics: 4,
-	paint: 5,
-	music: 3,
-	bilogy: 4
-};
-
-function average(number) {
-  let sum = 0;
-  let count = 0;
-
-  for (let i = 0; i < number.length; i++) {
-  count += 1;
-  sum += number[i];
-}
-  return sum / count;
+    algebra: 5,
+    geography: 4,
+    physics: 4,
+     paint: 5,
+	   music: 3,
+	   bilogy: 4
 }
 
-average(jornalPerson);
+let arr = [];
 
-console.log(average);*/
+for (let i in jornalPerson) {
+  arr.push(jornalPerson[i]);
+}
+//console.log(arr);
+
+let count = 0;
+let sum = 0;
+let average1 = 0;
+
+for (let i = 0; i < arr.length; i++) {
+  count+=1;
+  sum += arr[i];
+  average1 = sum / count;
+}
+console.log(`Средний бал равен ученика равен: ${average1.toFixed(2)}`);
+
+console.log("\n");
+
+
+// Конец альтернативного решения Задания №1
