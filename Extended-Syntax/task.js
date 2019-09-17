@@ -13,17 +13,16 @@ function calculateQuadraticEquation(){
 function getResult(a,b,c){
     // код для задачи №1 писать здесь
   
-  let discrim = Math.pow(a, 2) - 4 * (b * c);
+  let discriminant = Math.pow(a, 2) - 4 * (b * c);
   let x = [];
   
-  if (discriminant < 0) {
-    x = [];
-  } else if (discrim === 0) {
+  if (discriminant > 0) {
+    x.push(((-b - Math.sqrt(discriminant)) / (2 * a)).toFixed(2));
+    x.push(((-b + Math.sqrt(discriminant)) / (2 * a)).toFixed(2));
+  } else if (discriminant === 0) {
     x.push(-(b / 2 * a).toFixed(2));
-  } else {
-    x.push(((-b - Math.sqrt(discrim)) / (2 * a)).toFixed(2));
-    x.push(((-b + Math.sqrt(discrim)) / (2 * a)).toFixed(2));
-  }  
+  }
+  console.log(x);
   return x;
 }
 
