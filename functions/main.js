@@ -1,7 +1,7 @@
 "use strict";
 
 console.log(`Задание №1. Корни квадратного уравнения\n `);
-/*
+
 function getSolutions (a, b, c) {
 	
 	let result = {};
@@ -49,11 +49,11 @@ function showSolutionsMessage (a, b, c) {
 	return result;
 }
 
-showSolutionsMessage(7, 20, -3);*/
+showSolutionsMessage(7, 20, -3);
 
 
 console.log(`\nЗадание №2. Журнал успеваемости\n `);
-/*
+
 let data ={
 	algebra: [2, 4, 5, 2, 3, 4],
 	geometry: [2, 4, 5],
@@ -109,6 +109,56 @@ function getAverageScore(averageMark) {
 getAverageScore(data);
 console.log(data);
 
-*/
 
 console.log(`\nЗадание №3. Расшифровка данных\n `);
+
+let secretData = {
+	aaa: 1,
+	bbb: 0
+}
+
+function getPersonData( donKnow ) {
+		
+	console.log(donKnow);
+	
+	return function(donKnow) {
+		
+		for (let prop in donKnow) {
+			for (let j = 0; j < donKnow[prop].length; j++) {
+				
+				if (donKnow[prop][j] == 0) {
+					donKnow[prop][j] = ("Родриго");
+				} else if (donKnow[prop][j] == 1) {
+					donKnow[prop][j] = ("Эмильо");
+				}
+				
+				console.log(donKnow);
+				//console.log({firstName: donKnow[key][j], lastName: donKnow[key][j]});
+			}
+		}
+		
+	}
+		
+}
+
+
+getPersonData( secretData );
+
+
+/*
+
+if (secretData.aaa === 0) {
+			secretData.aaa = "Родриго";
+		} else if (secretData.aaa === 1) {
+			secretData.aaa = "Эмильо";
+		} 
+		
+		if (secretData.bbb === 0) {
+			secretData.bbb = "Родриго";
+		} else if (secretData.bbb === 1) {
+			secretData.bbb = "Эмильо";
+		} 
+		
+		console.log(secretData);
+		
+*/
