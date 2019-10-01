@@ -51,6 +51,7 @@ function showSolutionsMessage (a, b, c) {
 
 showSolutionsMessage(7, 20, -3);
 
+// *******************************************************************************
 
 console.log(`\nЗадание №2. Журнал успеваемости\n `);
 
@@ -61,20 +62,96 @@ let data ={
 	physics: [5, 5],
 	music: [2, 2, 6],
 	english: [4, 4, 3],
-	poetry: [5, 3, 4],
+	poetry: [5, 3, 4, 5],
 	chemistry: [2],
 	french: [4, 4]
 }
-//data.physics.push(5, 4);
-//data.chemistry.push(5, 4);
-//data.french.push(5, 4);
-//data.literature = [5, 4, 3, 5];
-//data.physicalTraining = [5, 5, 5, 5];
-//data.art = [2, 3, 5, 5];
-//data.crafts = [4, 4, 5, 5];
-//data.mathematics = [4, 4, 5, 3];
+
+// data.physics.push(5, 4);
+// data.chemistry.push(5, 4);
+// data.french.push(5, 4);
+// data.literature = [5, 4, 3, 5];
+// data.physicalTraining = [5, 5, 4, 5];
+// data.art = [2, 3, 5, 5];
+// data.crafts = [3, 4, 5, 5];
+// data.mathematics = [3, 4, 5, 5];
 
 
+function getAverageMark (mas) {
+	let sum = 0;
+
+	for (let i = 0; i < mas.length; i++) {
+		sum += mas[i];
+	}
+
+	return Number((sum / mas.length).toFixed(3));
+}
+
+//console.log(getAverageMark(data.algebra));
+
+
+function getAverageScore(obj) {
+
+	let masScore = {};
+
+	for (let key in obj) {
+		masScore[key] = getAverageMark(obj[key]);
+	}
+
+	let score = 0;
+	let sum = 0;
+	
+		for (let j in masScore) {
+			score += 1;
+			sum += masScore[j];
+		}
+	
+		masScore.average = Number((sum / score).toFixed(3));
+	
+
+	console.log(masScore);
+
+	return masScore;
+}
+
+getAverageScore(data);
+
+
+// ******************************************************************************* 
+
+console.log(`\nЗадание №3. Расшифровка данных\n `);
+
+let secretData = {
+	aaa: 0,
+	bbb: 1
+}
+
+function getString (x) {
+    return  (x === 0) ? "Эмильо" : "Родриго";
+}
+
+function getPersonData (obj) {
+
+	let discriptSecretData = {};
+
+	discriptSecretData.firstName = getString(obj.aaa);
+	discriptSecretData.lastName = getString(obj.bbb);
+
+	//console.log(discriptSecretData);
+	return discriptSecretData;
+}
+
+
+getPersonData(secretData);
+
+console.log(getPersonData(secretData));
+
+
+
+
+// *********************** Старое решение второй задачи
+
+/*
 function getAverageMark(obj) {
 //Средняя оценка по предметам:
 	
@@ -108,57 +185,4 @@ function getAverageScore(averageMark) {
 }
 getAverageScore(data);
 console.log(data);
-
-
-console.log(`\nЗадание №3. Расшифровка данных\n `);
-
-let secretData = {
-	aaa: 1,
-	bbb: 0
-}
-
-function getPersonData( donKnow ) {
-		
-	console.log(donKnow);
-	
-	return function(donKnow) {
-		
-		for (let prop in donKnow) {
-			for (let j = 0; j < donKnow[prop].length; j++) {
-				
-				if (donKnow[prop][j] == 0) {
-					donKnow[prop][j] = ("Родриго");
-				} else if (donKnow[prop][j] == 1) {
-					donKnow[prop][j] = ("Эмильо");
-				}
-				
-				console.log(donKnow);
-				//console.log({firstName: donKnow[key][j], lastName: donKnow[key][j]});
-			}
-		}
-		
-	}
-		
-}
-
-
-getPersonData( secretData );
-
-
-/*
-
-if (secretData.aaa === 0) {
-			secretData.aaa = "Родриго";
-		} else if (secretData.aaa === 1) {
-			secretData.aaa = "Эмильо";
-		} 
-		
-		if (secretData.bbb === 0) {
-			secretData.bbb = "Родриго";
-		} else if (secretData.bbb === 1) {
-			secretData.bbb = "Эмильо";
-		} 
-		
-		console.log(secretData);
-		
 */
